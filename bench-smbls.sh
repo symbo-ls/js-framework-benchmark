@@ -14,7 +14,12 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$SCRIPT_DIR"
 
-SMBLS_DIR="frameworks/keyed/smbls"
+# Where smbls source (framework) lives
+DIR="$(cd "$SCRIPT_DIR/../smbls" && pwd)"
+# Benchmark framework entry
+BENCH_DIR="frameworks/keyed/smbls"
+# Build output directory
+DIST_DIR="dist"
 SERVER_PID=""
 
 cleanup() {
@@ -27,12 +32,12 @@ trap cleanup EXIT
 
 # ── 1. Build smbls ──────────────────────────────────────────────
 build_smbls() {
-  echo "==> Building smbls..."
-  cd "$SCRIPT_DIR/$SMBLS_DIR"
+  echo "==> Building smbls (src: $DIR)..."
+  cd "$SCRIPT_DIR/$BENCH_DIR"
   npm install --silent 2>/dev/null
   npm run build-prod
+  echo "    Built to $BENCH_DIR/$DIST_DIR/"
   cd "$SCRIPT_DIR"
-  echo "    Done."
 }
 
 # ── 2. Start server ─────────────────────────────────────────────
