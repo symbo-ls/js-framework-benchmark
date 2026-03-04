@@ -1,0 +1,19 @@
+{
+  "name": "js-framework-benchmark-domql",
+  "version": "1.0.0",
+  "description": "DOMQL (smbls) benchmark implementation",
+  "type": "module",
+  "js-framework-benchmark": {
+    "frameworkVersionFromPackage": "@domql/element",
+    "frameworkHomeURL": "https://symbols.app"
+  },
+  "scripts": {
+    "build-prod": "esbuild src/Main.js --bundle --minify --outfile=dist/main.js --format=iife --define:process.env.NODE_ENV=\\\"production\\\""
+  },
+  "dependencies": {
+    "@domql/element": "file:../../../../smbls/packages/element"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
+  }
+}
