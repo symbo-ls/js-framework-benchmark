@@ -17,6 +17,6 @@
     "url": "https://github.com/krausest/js-framework-benchmark.git"
   },
     "devDependencies": {
-    "@ui5/cli": "^3"
+    "@ui5/cli": "^4"
   }
 }
